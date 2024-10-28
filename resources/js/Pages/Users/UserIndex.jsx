@@ -1,6 +1,7 @@
+import PrimaryButton from '@/Components/Button/PrimaryButton';
 import Pagination from '@/Components/Pagination';
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
-import { Head } from '@inertiajs/react';
+import { Head, Link } from '@inertiajs/react';
 
 export default function UserIndex({ auth, users }) {
     return (
@@ -41,7 +42,10 @@ export default function UserIndex({ auth, users }) {
                                         {user.email}
                                     </td>
                                     <td className="px-6 py-2 text-center text-sm text-gray-500 tracking-wider">
-                                        Visualizar Editar Apagar
+                                        <Link href={ route('users.show', { id: user.id})}>
+                                            <PrimaryButton>Visualizar</PrimaryButton>
+                                        </Link>
+                                         Editar Apagar
                                     </td>
                                 </tr>
                             ))}
