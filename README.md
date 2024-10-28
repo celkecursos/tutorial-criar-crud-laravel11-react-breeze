@@ -17,7 +17,7 @@ No projeto, são desenvolvidas a página de login e o CRUD completo, com a cria�
 Duplicar o arquivo ".env.example" e renomear para ".env".<br>
 Alterar no arquivo .env as credenciais do banco de dados.<br>
 Alterar no arquivo .env as credenciais do o servidor de e-mail.<br>
-Servidor Iagente: https://www.iagente.com.br/solicitacao-conta-smtp/origin/celke<br>
+Servidor Iagente: https://login.iagente.com.br/solicitacao-conta-smtp/origin/celke<br>
 
 Instalar as dependências do PHP.
 ```
@@ -105,3 +105,8 @@ npm run dev
 ```
 
 Traduzir para português [Módulo de linguagem pt-BR](https://github.com/lucascudo/laravel-pt-BR-localization).
+
+Criar a controller.
+```
+php artisan make:controller UserController
+```
