@@ -60,7 +60,7 @@ http://127.0.0.1:8000
 ```
 
 Usuário: cesar@celke.com.br<br>
-Senha: 123456a<br>
+Senha: 123456A#<br>
 
 
 ## Sequencia para criar o projeto
