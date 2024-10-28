@@ -1,8 +1,11 @@
 import PrimaryButton from '@/Components/Button/PrimaryButton';
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
-import { Head, Link } from '@inertiajs/react';
+import { Head, Link, usePage } from '@inertiajs/react';
 
-export default function UserIndex({ auth, user }) {
+export default function UserShow({ auth, user }) {
+
+    const {flash} = usePage().props;
+    
     return (
         <AuthenticatedLayout
             user={auth.user}
@@ -16,10 +19,13 @@ export default function UserIndex({ auth, user }) {
                         <h3 className="text-lg">Visualizar</h3>
                         <div className="flex space-x-4">
                             <Link href={route('users.index')}>
-                                <PrimaryButton>Listar</PrimaryButton>
+                                <PrimaryButton className="text-sm">Listar</PrimaryButton>
                             </Link>
                         </div>
                     </div>
+
+                    {/* Apresentar a mensagem de sucesso ou erro */}
+                    {flash.success && (<div className="p-3 m-3 text-sm text-green-800 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-green-400">{flash.success}</div>)}
 
                     {/* Imprimir os dados do usuário */}
                     <div className="bg-gray-50 text-sm dark:bg-gray-700 p-4 rounded-lg shadow-md">

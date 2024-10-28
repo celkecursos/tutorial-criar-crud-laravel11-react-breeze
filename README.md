@@ -1,4 +1,4 @@
-Projeto criado na lista de aulas sobre Laravel 11 + Breeze + React.<br>
+Projeto criado na lista de aulas sobre [Laravel 11 + Breeze + React](https://github.com/celkecursos/criar-crud-laravel11-react-breeze.git).<br>
 No projeto, são desenvolvidas a página de login e o CRUD completo, com a criação das seguintes páginas:<br>
 * C - Create: formulário para cadastrar registro no banco de dados;
 * R - Read: listar os registros do banco de dados;

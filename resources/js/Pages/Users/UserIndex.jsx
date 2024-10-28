@@ -1,4 +1,5 @@
 import PrimaryButton from '@/Components/Button/PrimaryButton';
+import SuccessButton from '@/Components/Button/SuccessButton';
 import Pagination from '@/Components/Pagination';
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { Head, Link } from '@inertiajs/react';
@@ -16,7 +17,11 @@ export default function UserIndex({ auth, users }) {
                     <div className="flex justify-between items-center m-4">
                         <h3 className="text-lg">Listar</h3>
                         <div className="flex space-x-4">
-                            Cadastrar
+                            <Link href={route('users.create')}>
+                                <SuccessButton className="text-sm">
+                                    Cadastrar
+                                </SuccessButton>
+                            </Link>
                         </div>
                     </div>
 

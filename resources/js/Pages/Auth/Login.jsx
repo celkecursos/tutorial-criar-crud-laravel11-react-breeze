@@ -94,7 +94,7 @@ export default function Login({ status, canResetPassword }) {
             </form>
             <div className='m-4'>
                 Usuário: cesar@celke.com.br
-                Senha: 123456a
+                Senha: 123456A#
             </div>
         </GuestLayout>
     );

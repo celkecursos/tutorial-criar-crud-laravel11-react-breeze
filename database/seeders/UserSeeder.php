@@ -18,7 +18,7 @@ class UserSeeder extends Seeder
             User::create([
                 'name' => 'Cesar',
                 'email' => 'cesar@celke.com.br',
-                'password' => Hash::make('123456a', ['rounds' => 12])
+                'password' => Hash::make('123456A#', ['rounds' => 12])
             ]);
         }
         
@@ -26,7 +26,7 @@ class UserSeeder extends Seeder
             User::create([
                 'name' => 'Kelly',
                 'email' => 'kelly@celke.com.br',
-                'password' => Hash::make('123456a', ['rounds' => 12])
+                'password' => Hash::make('123456A#', ['rounds' => 12])
             ]);
         }
         
@@ -34,7 +34,7 @@ class UserSeeder extends Seeder
             User::create([
                 'name' => 'Jessica',
                 'email' => 'jessica@celke.com.br',
-                'password' => Hash::make('123456a', ['rounds' => 12])
+                'password' => Hash::make('123456A#', ['rounds' => 12])
             ]);
         }
         
@@ -42,7 +42,7 @@ class UserSeeder extends Seeder
             User::create([
                 'name' => 'Gabrielly',
                 'email' => 'gabrielly@celke.com.br',
-                'password' => Hash::make('123456a', ['rounds' => 12])
+                'password' => Hash::make('123456A#', ['rounds' => 12])
             ]);
         }
         
@@ -50,7 +50,7 @@ class UserSeeder extends Seeder
             User::create([
                 'name' => 'Marcos',
                 'email' => 'marcos@celke.com.br',
-                'password' => Hash::make('123456a', ['rounds' => 12])
+                'password' => Hash::make('123456A#', ['rounds' => 12])
             ]);
         }
     }
