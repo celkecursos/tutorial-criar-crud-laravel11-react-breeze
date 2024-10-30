@@ -1,23 +1,23 @@
 import InfoButton from '@/Components/Button/InfoButton';
-import SuccessButton from '@/Components/Button/SuccessButton';
+import PrimaryButton from '@/Components/Button/PrimaryButton';
+import WarningButton from '@/Components/Button/WarningButton';
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { Head, Link, useForm } from '@inertiajs/react';
 
-export default function UserCreate({ auth, user }) {
+export default function UserEdit({ auth, user }) {
 
-    const {data, setData, post, processing, errors} = useForm({
-        name: '',
-        email: '',
-        password: '',
-        password_confirmation: '',
+    const {data, setData, put, processing, errors} = useForm({
+        id: user.id || '',
+        name: user.name || '',
+        email: user.email || '',
     });
 
     const handleSubmit = (e) => {
 
         e.preventDefault(); // Não atualizar a página
 
-        // Enviar os dados para a rota cadastrar
-        post(route('users.store'));
+        // Enviar os dados para a rota editar
+        put(route('users.update', {user: data.id}));
     }
 
     return (
@@ -30,15 +30,18 @@ export default function UserCreate({ auth, user }) {
             <div className="py-4 max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <div className="overflow-hidden bg-white shadow-lg sm:rounded-lg dark:bg-gray-800">
                     <div className="flex justify-between items-center m-4">
-                        <h3 className="text-lg">Cadastrar</h3>
-                        <div className="flex space-x-4">
+                        <h3 className="text-lg">Editar</h3>
+                        <div className="flex space-x-1">
                             <Link href={route('users.index')}>
                                 <InfoButton className="text-sm">Listar</InfoButton>
+                            </Link>
+                            <Link href={route('users.show', { user: user.id})}>
+                                <PrimaryButton className="text-sm">Visualizar</PrimaryButton>
                             </Link>
                         </div>
                     </div>
 
-                    {/* Formulário para cadastar usuário */}
+                    {/* Formulário para editar usuário */}
                     <div className="bg-gray-50 text-sm dark:bg-gray-700 p-4 rounded-lg shadow-md">
 
                         <form onSubmit={handleSubmit}>
@@ -68,42 +71,14 @@ export default function UserCreate({ auth, user }) {
                                 {errors.email && <span className="text-red-600">{errors.email}</span>}
                             </div>
 
-                            <div className="mb-4">
-                                <label htmlFor="password" className="block text-sm font-medium text-gray-700 ">Senha</label>
-                                <input
-                                    id="password"
-                                    type="password"
-                                    autoComplete="password"
-                                    value={data.password}
-                                    onChange={(e) => setData('password', e.target.value)}
-                                    placeholder="Senha para o usuário acessar o sistema"
-                                    className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                                />
-                                {errors.password && <span className="text-red-600">{errors.password}</span>}
-                            </div>
-
-                            <div className="mb-4">
-                                <label htmlFor="password_confirmation" className="block text-sm font-medium text-gray-700 ">Confirmar a Senha</label>
-                                <input
-                                    id="password_confirmation"
-                                    type="password"
-                                    autoComplete="password_confirmation"
-                                    placeholder="Confirmar a senha"
-                                    value={data.password_confirmation}
-                                    onChange={(e) => setData('password_confirmation', e.target.value)}
-                                    className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                                />
-                                {errors.password_confirmation && <span className="text-red-600">{errors.password_confirmation}</span>}
-                            </div>
-
                             <div className="flex justify-end">
-                                <SuccessButton
+                                <WarningButton
                                     type="submit"
                                     disabled={processing}
                                     className="text-sm"
                                 >
-                                    Cadastrar
-                                </SuccessButton>
+                                    Salvar
+                                </WarningButton>
                             </div>
 
                         </form>
