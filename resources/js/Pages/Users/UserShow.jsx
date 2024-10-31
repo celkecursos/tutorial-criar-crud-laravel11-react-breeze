@@ -1,5 +1,7 @@
+import AlertMessage from '@/Components/Alert/AlertMessage';
 import InfoButton from '@/Components/Button/InfoButton';
 import WarningButton from '@/Components/Button/WarningButton';
+import ConfirmDeleteButton from '@/Components/Delete/ConfirmDeleteButton';
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { Head, Link, usePage } from '@inertiajs/react';
 
@@ -25,11 +27,12 @@ export default function UserShow({ auth, user }) {
                             <Link href={route('users.edit', { user: user.id})}>
                                 <WarningButton className="text-sm">Editar</WarningButton>
                             </Link>
+                            <ConfirmDeleteButton id={user.id} routeName="users.destroy" />
                         </div>
                     </div>
 
-                    {/* Apresentar a mensagem de sucesso ou erro */}
-                    {flash.success && (<div className="p-3 m-3 text-sm text-green-800 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-green-400">{flash.success}</div>)}
+                    {/* Exibir mensagens de alerta */}
+                    <AlertMessage message={flash} />
 
                     {/* Imprimir os dados do usuário */}
                     <div className="bg-gray-50 text-sm dark:bg-gray-700 p-4 rounded-lg shadow-md">

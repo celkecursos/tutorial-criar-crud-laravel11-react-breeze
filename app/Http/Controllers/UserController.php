@@ -96,4 +96,14 @@ class UserController extends Controller
 
         return Redirect::route('users.show', ['user' => $user->id])->with('success', 'Usuário editado com sucesso!');
     }
+
+    public function destroy(User $user)
+    {
+        
+        // Excluir o registro do banco de dados
+        $user->delete();
+
+        return Redirect::route('users.index')->with('success', 'Usuário apagado com sucesso!');
+
+    }
 }
