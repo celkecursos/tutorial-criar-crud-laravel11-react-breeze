@@ -110,3 +110,8 @@ Criar a controller.
 ```
 php artisan make:controller UserController
 ```
+
+Instalar o sweetalert2 para apresentar mensagem de confirmação.
+```
+npm install sweetalert2
+```

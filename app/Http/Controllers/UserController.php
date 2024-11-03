@@ -103,7 +103,7 @@ class UserController extends Controller
         // Excluir o registro do banco de dados
         $user->delete();
 
-        return Redirect::route('users.index')->with('success', 'Usuário apagado com sucesso!');
+        return Redirect::route('users.index');
 
     }
 }
